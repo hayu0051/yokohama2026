@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>横浜ドライブ観光コース案内 2026年5月22日</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500&display=swap');
+
+  :root {
+    --navy: #1a2744;
+    --gold: #b8963e;
+    --gold-light: #e8c97a;
+    --cream: #faf7f0;
+    --sage: #5a7a6a;
+    --rose: #c0605a;
+    --sky: #4a7fa0;
+    --text: #2a2a2a;
+    --muted: #6a6a6a;
+    --border: #d4c5a9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  /* ── ヘッダー ─────────────────── */
+  .hero {
+    background: var(--navy);
+    color: white;
+    padding: 48px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-inner { position: relative; max-width: 900px; margin: 0 auto; }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    padding: 4px 14px;
+    margin-bottom: 16px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .hero-subtitle {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    letter-spacing: 0.05em;
+  }
+  .hero-meta {
+    margin-top: 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+  }
+  .hero-meta-item .icon {
+    width: 18px; height: 18px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  /* ── レイアウト ─────────────────── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── セクション共通 ─────────────────── */
+  section { padding: 40px 0; }
+  section + section { border-top: 1px solid var(--border); }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+
+  /* ── 制約サマリー ─────────────────── */
+  .constraints-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .constraint-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .constraint-card .label { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+  .constraint-card .value { font-size: 14px; font-weight: 500; color: var(--navy); }
+
+  .alert {
+    background: #fff8e8;
+    border-left: 3px solid var(--gold);
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    color: #5a4010;
+  }
+  .alert strong { display: block; margin-bottom: 4px; font-size: 12px; color: var(--gold); letter-spacing: 0.1em; }
+
+  /* ── Googleマップ ─────────────────── */
+  .map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  /* map-container iframe: 削除済み（CSP対応のためリンク方式に変更） */
+  .map-note { font-size: 12px; color: var(--muted); text-align: center; }
+
+  /* ── コース別タブ ─────────────────── */
+  .tabs { display: flex; gap: 4px; margin-bottom: 24px; flex-wrap: wrap; }
+  .tab-btn {
+    padding: 8px 18px;
+    border: 1.5px solid var(--border);
+    background: white;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: 'Noto Sans JP', sans-serif;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.2s;
+    font-weight: 500;
+  }
+  .tab-btn:hover { border-color: var(--navy); color: var(--navy); }
+  .tab-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* ── コースカード ─────────────────── */
+  .course-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--navy);
+    border-radius: 10px 10px 0 0;
+    color: white;
+  }
+  .course-badge {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .course-header h3 { font-family: 'Noto Serif JP', serif; font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .course-header p { font-size: 13px; opacity: 0.75; }
+  .course-body { background: white; border: 1px solid var(--border); border-top: none; border-radius: 0 0 10px 10px; padding: 0; }
+
+  /* タイムライン */
+  .timeline { padding: 0; }
+  .tl-item {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #f0ede8;
+    transition: background 0.15s;
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-time {
+    width: 90px;
+    flex-shrink: 0;
+    padding: 16px 12px 16px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    border-right: 2px solid #f0ede8;
+    text-align: right;
+    line-height: 1.3;
+  }
+  .tl-time .range { font-size: 11px; color: var(--muted); font-weight: 400; }
+  .tl-dot-col {
+    width: 32px; flex-shrink: 0;
+    display: flex; flex-direction: column; align-items: center;
+    padding-top: 20px;
+  }
+  .tl-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--gold);
+    flex-shrink: 0;
+  }
+  .tl-dot.drive { background: var(--sky); box-shadow: 0 0 0 2px var(--sky); }
+  .tl-dot.meal { background: var(--sage); box-shadow: 0 0 0 2px var(--sage); }
+  .tl-dot.hotel { background: var(--rose); box-shadow: 0 0 0 2px var(--rose); }
+  .tl-content { flex: 1; padding: 14px 20px 14px 4px; }
+  .tl-content .spot-name {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+  .tag {
+    font-size: 10px;
+    padding: 1px 7px;
+    border-radius: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .tag-drive { background: #e8f0f8; color: var(--sky); }
+  .tag-sightseeing { background: #fdf3e0; color: #8a6020; }
+  .tag-meal { background: #eaf4ee; color: var(--sage); }
+  .tag-hotel { background: #fdeeed; color: var(--rose); }
+  .tl-content .detail { font-size: 12px; color: var(--muted); }
+  .tl-content .warning { font-size: 12px; color: #c06020; background: #fff4ec; border-radius: 4px; padding: 2px 8px; display: inline-block; margin-top: 2px; }
+
+  /* ── お薦め順 ─────────────────── */
+  .weather-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width: 600px) { .weather-grid { grid-template-columns: 1fr; } }
+  .weather-card {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .weather-card-header {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .weather-card-header.sunny { background: #fff8e0; color: #6a4800; }
+  .weather-card-header.rainy { background: #e8f0f8; color: #1a3a5a; }
+  .weather-card-body { background: white; padding: 14px 18px; }
+  .rank-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 13px;
+  }
+  .rank-item:last-child { border-bottom: none; }
+  .rank-num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .rank-1 { background: var(--gold); color: var(--navy); }
+  .rank-2 { background: #c0c0c0; color: white; }
+  .rank-3 { background: #cd7f32; color: white; }
+  .rank-4 { background: #e0e0e0; color: #555; }
+  .rank-reason { font-size: 11px; color: var(--muted); }
+
+  /* ── 見どころ ─────────────────── */
+  .spots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+  .spot-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .spot-card-header {
+    background: var(--navy);
+    color: white;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .spot-num {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 13px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .spot-card-header .name { font-size: 14px; font-weight: 600; }
+  .spot-card-body { padding: 14px 16px; }
+  .spot-info-row { display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+  .info-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .spot-card-body p { font-size: 13px; color: var(--text); line-height: 1.7; }
+  .highlight {
+    margin-top: 8px;
+    padding: 8px 10px;
+    background: #fdf9f0;
+    border-radius: 6px;
+    border-left: 3px solid var(--gold);
+    font-size: 12px;
+    color: #5a4010;
+  }
+  .highlight::before { content: '🌿 5/22の見どころ '; font-weight: 600; }
+  .barrier-note {
+    margin-top: 8px;
+    font-size: 11px;
+    color: var(--sage);
+    padding: 4px 8px;
+    background: #edf5f0;
+    border-radius: 4px;
+  }
+  .barrier-note::before { content: '♿ '; }
+
+  /* ── 夕食候補 ─────────────────── */
+  .dinner-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .dinner-table th {
+    background: var(--navy);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+  .dinner-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #f0ede8;
+    vertical-align: top;
+  }
+  .dinner-table tr:last-child td { border-bottom: none; }
+  .dinner-table tr:nth-child(even) td { background: #faf8f4; }
+
+  /* ── 注意事項 ─────────────────── */
+  .notes-list { list-style: none; }
+  .notes-list li {
+    padding: 10px 14px;
+    border-left: 3px solid var(--border);
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--text);
+    background: white;
+    border-radius: 0 6px 6px 0;
+  }
+  .notes-list li strong { color: var(--navy); }
+  .notes-list li.warn { border-color: var(--rose); background: #fdf5f5; }
+  .notes-list li.tip { border-color: var(--sage); background: #f5faf5; }
+
+  /* ── フッター ─────────────────── */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px;
+    font-size: 12px;
+    margin-top: 40px;
+  }
+
+  /* ── レスポンシブ ─────────────────── */
+  @media(max-width: 640px) {
+    .hero { padding: 32px 20px 28px; }
+    .hero h1 { font-size: 22px; }
+    .container { padding: 0 16px; }
+    .tl-time { width: 72px; font-size: 12px; }
+    .weather-grid { grid-template-columns: 1fr; }
+  }
+
+  /* アニメ */
+  .fade-in { animation: fadeIn 0.4s ease forwards; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .print-note { font-size: 12px; color: var(--muted); text-align: right; padding: 12px 0 0; }
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">YOKOHAMA DRIVE GUIDE</div>
+    <h1>横浜ドライブ観光コース案内</h1>
+    <div class="hero-subtitle">2026年5月22日（金）｜滋賀からお越しの皆様へ</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><span class="icon">出</span>14:00 上菅田中学校 出発</div>
+      <div class="hero-meta-item"><span class="icon">着</span>18:00〜19:00 APAホテル（赤レンガ倉庫付近）着</div>
+      <div class="hero-meta-item"><span class="icon">食</span>⑦着前に駐車場付きレストランで夕食 約1時間</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- 条件サマリー -->
+<section>
+  <div class="section-label">OVERVIEW</div>
+  <div class="section-title">行程の基本条件</div>
+  <div class="constraints-grid">
+    <div class="constraint-card">
+      <div class="label">出発地・時刻</div>
+      <div class="value">① 上菅田中学校（保土ヶ谷区） 14:00</div>
+    </div>
+    <div class="constraint-card">
+      <div class="label">見学スタイル</div>
+      <div class="value">各スポット 移動後 1時間見学</div>
+    </div>
+    <div class="constraint-card">
+      <div class="label">目的地着時刻</div>
+      <div class="value">⑦ APAホテル 18:00〜19:00</div>
+    </div>
+    <div class="constraint-card">
+      <div class="label">夕食</div>
+      <div class="value">⑦直前・駐車場付きレストラン 約1時間</div>
+    </div>
+    <div class="constraint-card">
+      <div class="label">曜日・交通状況</div>
+      <div class="value">金曜夕方 → 都市部は渋滞あり</div>
+    </div>
+    <div class="constraint-card">
+      <div class="label">移動手段</div>
+      <div class="value">マイカー（1台）</div>
+    </div>
+  </div>
+  <div class="alert">
+    <strong>⚠️ 重要な制約</strong>
+    ②鎌倉大仏（高徳院）は<strong>16:45閉門</strong>。14:00出発だと到着は15:00〜15:20頃となり、見学後に横浜市内スポットへ戻る時間がなくなります。<br>
+    ⑥市電保存館は<strong>金曜16:00閉館</strong>（入館は15:30まで）のため、最初に訪問する必要があります。<br>
+    ③横須賀軍港（ヴェルニー公園）は往復で2.5〜3時間消費し、横浜市内の複数スポットと組み合わせると19:00のホテル着が困難です。<br>
+    → 結果として、<strong>2スポット見学＋夕食が現実的な上限</strong>です。
+  </div>
+</section>
+
+<!-- Googleマップ（全スポット表示） -->
+<section>
+  <div class="section-label">MAP</div>
+  <div class="section-title">全スポット位置図</div>
+  <div style="background:white;border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+    <!-- スポット一覧＋Googleマップリンク -->
+    <div style="padding:16px 20px;background:var(--navy);color:white;font-size:13px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+      <span style="font-family:'Noto Serif JP',serif;font-size:15px;">全スポット一覧（①〜⑦）</span>
+      <a href="https://www.google.com/maps/dir/35.490077,139.568456/35.3168145,139.5357442/35.2837781,139.6583323/35.4170511,139.6588267/35.4403169,139.6546505/35.4204265,139.6246815/35.4518637,139.6381042/@35.38,139.60,11z" target="_blank" rel="noopener"
+         style="background:var(--gold);color:var(--navy);font-weight:700;font-size:12px;padding:7px 16px;border-radius:6px;text-decoration:none;white-space:nowrap;">
+        🗺 Googleマップでルート確認 →
+      </a>
+    </div>
+    <div style="padding:16px 20px;">
+      <table style="width:100%;border-collapse:collapse;font-size:13px;">
+        <thead>
+          <tr style="background:#f8f5ef;">
+            <th style="padding:8px 12px;text-align:left;font-size:11px;color:var(--muted);font-weight:500;border-bottom:1px solid var(--border);">番号</th>
+            <th style="padding:8px 12px;text-align:left;font-size:11px;color:var(--muted);font-weight:500;border-bottom:1px solid var(--border);">スポット名</th>
+            <th style="padding:8px 12px;text-align:left;font-size:11px;color:var(--muted);font-weight:500;border-bottom:1px solid var(--border);">住所・メモ</th>
+            <th style="padding:8px 12px;text-align:left;font-size:11px;color:var(--muted);font-weight:500;border-bottom:1px solid var(--border);">地図</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #f0ede8;">
+            <td style="padding:9px 12px;font-weight:700;color:var(--navy);">①</td>
+            <td style="padding:9px 12px;">上菅田中学校（出発）</td>
+            <td style="padding:9px 12px;color:var(--muted);">保土ヶ谷区上菅田町780</td>
+            <td style="padding:9px 12px;"><a href="https://maps.google.com/?cid=14371666072310856614" target="_blank" style="color:var(--sky);font-size:12px;">地図を開く</a></td>
+          </tr>
+          <tr style="border-bottom:1px solid #f0ede8;background:#fdf9f0;">
+            <td style="padding:9px 12px;font-weight:700;color:#aaa;">②</td>
+            <td style="padding:9px 12px;color:#aaa;">鎌倉大仏（高徳院）<br><small>※今回は時間的に断念</small></td>
+            <td style="padding:9px 12px;color:#bbb;">鎌倉市長谷4-2-28 ／ 閉門16:45</td>
+            <td style="padding:9px 12px;"><a href="https://maps.google.com/?cid=2216777826481991500" target="_blank" style="color:var(--sky);font-size:12px;">地図を開く</a></td>
+          </tr>
+          <tr style="border-bottom:1px solid #f0ede8;">
+            <td style="padding:9px 12px;font-weight:700;color:#aaa;">③</td>
+            <td style="padding:9px 12px;color:#aaa;">横須賀軍港・ヴェルニー公園<br><small>※今回は時間的に断念</small></td>
+            <td style="padding:9px 12px;color:#bbb;">横須賀市汐入町1-1</td>
+            <td style="padding:9px 12px;"><a href="https://maps.google.com/?cid=2550519419581964256" target="_blank" style="color:var(--sky);font-size:12px;">地図を開く</a></td>
+          </tr>
+          <tr style="border-bottom:1px solid #f0ede8;background:#fdf9f0;">
+            <td style="padding:9px 12px;font-weight:700;color:var(--gold);">④</td>
+            <td style="padding:9px 12px;font-weight:500;">三溪園</td>
+            <td style="padding:9px 12px;color:var(--muted);">中区本牧三之谷58-1 ／ 9:00〜17:00</td>
+            <td style="padding:9px 12px;"><a href="https://maps.google.com/?cid=3843009332287043938" target="_blank" style="color:var(--sky);font-size:12px;">地図を開く</a></td>
+          </tr>
+          <tr style="border-bottom:1px solid #f0ede8;">
+            <td style="padding:9px 12px;font-weight:700;color:var(--gold);">⑤</td>
+            <td style="padding:9px 12px;font-weight:500;">港の見える丘公園</td>
+            <td style="padding:9px 12px;color:var(--muted);">中区山手町114 ／ 24時間開放・無料</td>
+            <td style="padding:9px 12px;"><a href="https://maps.google.com/?cid=16952876337867261293" target="_blank" style="color:var(--sky);font-size:12px;">地図を開く</a></td>
+          </tr>
+          <tr style="border-bottom:1px solid #f0ede8;background:#fdf9f0;">
+            <td style="padding:9px 12px;font-weight:700;color:var(--gold);">⑥</td>
+            <td style="padding:9px 12px;font-weight:500;">横浜市電保存館</td>
+            <td style="padding:9px 12px;color:var(--muted);">磯子区滝頭3-1-53 ／ 金曜10:00〜16:00</td>
+            <td style="padding:9px 12px;"><a href="https://maps.google.com/?cid=5901853372847497630" target="_blank" style="color:var(--sky);font-size:12px;">地図を開く</a></td>
+          </tr>
+          <tr>
+            <td style="padding:9px 12px;font-weight:700;color:var(--rose);">⑦</td>
+            <td style="padding:9px 12px;font-weight:500;">APAホテル＆リゾート（目的地）</td>
+            <td style="padding:9px 12px;color:var(--muted);">中区海岸通5-25-3 ／ 18:00〜19:00着</td>
+            <td style="padding:9px 12px;"><a href="https://maps.google.com/?cid=14940361248675608404" target="_blank" style="color:var(--sky);font-size:12px;">地図を開く</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="padding:10px 20px 14px;background:#f8f5ef;font-size:12px;color:var(--muted);text-align:center;">
+      ④⑤⑥⑦がコースで実際に訪問するスポットです。②③は今回断念のため参考表示。
+    </div>
+  </div>
+</section>
+
+<!-- コース別行程 -->
+<section>
+  <div class="section-label">ITINERARY</div>
+  <div class="section-title">コース別 時刻付き行程</div>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">
+    移動時間は金曜夕方の渋滞を考慮した幅で表示しています。早め・遅めの2ケースを併記します。
+  </p>
+
+  <div class="tabs">
+    <button class="tab-btn" onclick="switchTab('A')" style="border-color:var(--rose);color:var(--rose);">コースA ⚠️断念推奨</button>
+    <button class="tab-btn active" onclick="switchTab('B')">コースB ⭐推奨</button>
+    <button class="tab-btn" onclick="switchTab('C')">コースC ⭐推奨</button>
+    <button class="tab-btn" onclick="switchTab('D')">コースD</button>
+    <button class="tab-btn" onclick="switchTab('E')">コースE</button>
+  </div>
+
+  <!-- コースA（断念推奨） -->
+  <div id="tab-A" class="tab-content fade-in">
+    <div class="course-header" style="background:#7a2a22;">
+      <div class="course-badge" style="background:var(--rose);color:white;">A</div>
+      <div>
+        <h3>① → ②鎌倉大仏 → ③横須賀軍港 → 夕食 → ⑦APAホテル</h3>
+        <p>当初希望されていたコース。残念ながら時間的・論理的に複数の問題があり、このままでは成立しません。</p>
+      </div>
+    </div>
+    <div class="course-body">
+      <!-- 問題点の警告ボックス -->
+      <div style="margin:20px;padding:16px 18px;background:#fff0ee;border:2px solid var(--rose);border-radius:8px;">
+        <div style="font-weight:700;color:var(--rose);font-size:13px;letter-spacing:0.08em;margin-bottom:10px;">⚠️ このコースが成立しない理由（3つの致命的問題）</div>
+        <ol style="padding-left:18px;font-size:13px;color:#5a2020;line-height:2;">
+          <li><strong>②鎌倉大仏が閉門16:45</strong>：14:00出発で渋滞を考慮すると到着は15:00〜15:20頃。見学1時間後に出発すると16:00〜16:20となり、閉門前に入れるが<strong>次の③横須賀まで50〜70分</strong>かかるため到着は17:00〜17:30になります。</li>
+          <li><strong>③横須賀軍港からホテルが遠い</strong>：横須賀→APAホテル（赤レンガ倉庫付近）は約45〜75分。③見学後の出発が18:00〜18:30となり、夕食1時間を挟むと<strong>ホテル着が20:00〜21:00になる可能性</strong>が高く、18:00〜19:00の条件を大幅に超過します。</li>
+          <li><strong>夕食場所の問題</strong>：横須賀〜横浜間の移動中に駐車場付きのレストランで1時間食事を取る場合、横浜市内のどこかで下車することになりますが、その後APAホテルまでの金曜夕方渋滞（横須賀→横浜の国道16号・横横道路は帰宅ラッシュで特に混む）を考えると<strong>19:00着は現実的に不可能</strong>です。</li>
+        </ol>
+      </div>
+
+      <!-- それでも参考として行程表示 -->
+      <div style="padding:8px 20px 4px;font-size:12px;color:var(--muted);border-top:1px solid #f0ede8;">
+        ↓ 参考：仮にこのコースを実行した場合の想定タイムライン（問題が顕在化する箇所を赤字で示します）
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">14:00</div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">① 上菅田中学校 出発 <span class="tag tag-sightseeing">出発</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:00<br><span class="range">↓ 60〜80分</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 上菅田→鎌倉大仏</div>
+            <div class="detail">保土ヶ谷→鎌倉 約35km。藤沢・鎌倉方面は14時台でも渋滞多発。</div>
+          </div>
+        </div>
+        <div class="tl-item" style="background:#fff8f8;">
+          <div class="tl-time" style="color:var(--rose);">15:00<br><span class="range">〜15:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">② 鎌倉大仏（高徳院）到着 <span class="tag tag-sightseeing">見学1時間</span></div>
+            <div class="warning">⚠️ 閉門16:45 → 15:30以降に到着すると見学時間が30分以下になる危険あり</div>
+          </div>
+        </div>
+        <div class="tl-item" style="background:#fff8f8;">
+          <div class="tl-time" style="color:var(--rose);">16:00<br><span class="range">〜16:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 鎌倉大仏→横須賀軍港</div>
+            <div class="detail">約25km / 50〜70分。鎌倉→横須賀は三浦半島を縦断。夕方は特に混む。</div>
+          </div>
+        </div>
+        <div class="tl-item" style="background:#fff0ee;">
+          <div class="tl-time" style="color:var(--rose);">17:00<br><span class="range">〜17:30</span></div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">③ 横須賀軍港（ヴェルニー公園）到着 <span class="tag tag-sightseeing">見学1時間</span></div>
+            <div class="warning">⚠️ ここまでで既に17:00〜17:30。見学1時間後は18:00〜18:30出発</div>
+          </div>
+        </div>
+        <div class="tl-item" style="background:#fff0ee;">
+          <div class="tl-time" style="color:var(--rose);">18:00<br><span class="range">〜18:30</span></div>
+          <div class="tl-dot-col"><div class="tl-dot meal"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">🍽 夕食（横須賀〜横浜間のどこか）<span class="tag tag-meal">約1時間</span></div>
+            <div class="warning">⚠️ 金曜18時台の横須賀→横浜は帰宅ラッシュのピーク。駐車場付き店を探す時間もロス。</div>
+          </div>
+        </div>
+        <div class="tl-item" style="background:#ffeeec;">
+          <div class="tl-time" style="color:var(--rose);font-weight:700;">19:00<br><span class="range">〜20:30</span></div>
+          <div class="tl-dot-col"><div class="tl-dot hotel"></div></div>
+          <div class="tl-content">
+            <div class="spot-name" style="color:var(--rose);">⑦ APAホテル到着 ❌ <span class="tag" style="background:#fde;color:var(--rose);">条件超過</span></div>
+            <div class="warning">⚠️ 横須賀→APAホテルは55〜75分。夕食後の出発が19:00〜19:30なら到着は20:00〜21:00。「18:00〜19:00着」の条件を1〜2時間超過します。</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin:16px 20px;padding:12px 16px;background:#fff0ee;border-radius:6px;font-size:13px;color:#7a2a22;">
+        <strong>結論：</strong>コースAは「鎌倉大仏＋横須賀＋夕食＋ホテル18〜19時着」を同時に満たすことができません。②鎌倉大仏と③横須賀はそれぞれ単独でも半日かかる観光地です。今回は<strong>コースB〜Eのいずれかを選択し、次回の旅行で鎌倉・横須賀専用の日程を組む</strong>ことをお勧めします。
+      </div>
+    </div>
+  </div>
+
+  <!-- コースB -->
+  <div id="tab-B" class="tab-content active fade-in">
+    <div class="course-header">
+      <div class="course-badge">B</div>
+      <div>
+        <h3>① → ⑥市電保存館 → ④三溪園 → 夕食 → ⑦APAホテル</h3>
+        <p>⑥閉館前に室内から訪問。睡蓮咲く日本庭園で落ち着いた午後を。移動が最もコンパクト。</p>
+      </div>
+    </div>
+    <div class="course-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">14:00</div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">① 横浜市立上菅田中学校 <span class="tag tag-sightseeing">出発</span></div>
+            <div class="detail">保土ヶ谷区 上菅田町780</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:00<br><span class="range">↓ 35〜50分</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span></div>
+            <div class="detail">保土ヶ谷→磯子 約7km。平日昼帯でも国道16号経由で渋滞あり。</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:35<br><span class="range">〜14:50</span></div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">⑥ 横浜市電保存館 到着 <span class="tag tag-sightseeing">見学1時間</span></div>
+            <div class="detail">磯子区滝頭3-1-53 ／ 無料駐車場16台</div>
+            <div class="warning">⚠️ 金曜16:00閉館（入館15:30まで）→ 必ず最初に訪問</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">15:35<br><span class="range">〜15:50</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 市電保存館 → 三溪園</div>
+            <div class="detail">約4km / 15〜25分（本牧エリアは夕方混みやすい）</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16:00<br><span class="range">〜16:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">④ 三溪園 到着 <span class="tag tag-sightseeing">見学1時間</span></div>
+            <div class="detail">中区本牧三之谷58-1 ／ 閉園17:00（最終入園16:30）／ 駐車場あり</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17:00<br><span class="range">〜17:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 三溪園 → 夕食レストラン（本牧周辺）</div>
+            <div class="detail">三溪園から5〜10分圏内で駐車場付き店舗あり</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17:10<br><span class="range">〜17:30</span></div>
+          <div class="tl-dot-col"><div class="tl-dot meal"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">🍽 夕食（本牧エリア）<span class="tag tag-meal">約1時間</span></div>
+            <div class="detail">下記「夕食候補」欄参照。要事前予約（金曜夜）</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18:10<br><span class="range">〜18:30</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 夕食店 → APAホテル</div>
+            <div class="detail">本牧→赤レンガ倉庫付近 約20〜30分（夕方の横浜都心への流入渋滞あり）</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18:20<br><span class="range">〜19:00</span></div>
+          <div class="tl-dot-col"><div class="tl-dot hotel"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">⑦ APAホテル＆リゾート到着 ✅ <span class="tag tag-hotel">チェックイン</span></div>
+            <div class="detail">中区海岸通5-25-3 ／ ホテル有料駐車場あり（要確認）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- コースC -->
+  <div id="tab-C" class="tab-content fade-in">
+    <div class="course-header">
+      <div class="course-badge">C</div>
+      <div>
+        <h3>① → ⑥市電保存館 → ⑤港の見える丘公園 → 夕食 → ⑦APAホテル</h3>
+        <p>バラの最盛期（5/22は見頃ピーク）。山手の異国情緒と横浜港の眺望を楽しめるコース。</p>
+      </div>
+    </div>
+    <div class="course-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">14:00</div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">① 上菅田中学校 出発 <span class="tag tag-sightseeing">出発</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:00<br><span class="range">↓ 35〜50分</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:35<br><span class="range">〜14:50</span></div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">⑥ 市電保存館 到着 <span class="tag tag-sightseeing">見学1時間</span></div>
+            <div class="warning">⚠️ 金曜16:00閉館（入館15:30まで）</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">15:35<br><span class="range">〜15:50</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 市電保存館 → 港の見える丘公園</div>
+            <div class="detail">磯子→山手 約7km / 20〜30分</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16:05<br><span class="range">〜16:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">⑤ 港の見える丘公園 到着 <span class="tag tag-sightseeing">見学1時間</span></div>
+            <div class="detail">中区山手町114 ／ 公園は無料・24時間開放 ／ 近隣に有料駐車場</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17:05<br><span class="range">〜17:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> → 元町・山手周辺レストラン</div>
+            <div class="detail">徒歩圏内〜5分程度。元町通り沿いに駐車場付き店舗あり</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17:15<br><span class="range">〜17:30</span></div>
+          <div class="tl-dot-col"><div class="tl-dot meal"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">🍽 夕食（元町・山手エリア）<span class="tag tag-meal">約1時間</span></div>
+            <div class="detail">下記「夕食候補」欄参照。西洋料理・中華など多彩</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18:15<br><span class="range">〜18:30</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 元町 → APAホテル</div>
+            <div class="detail">約10〜20分（みなとみらい方向への金曜夕方渋滞に注意）</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18:25<br><span class="range">〜18:50</span></div>
+          <div class="tl-dot-col"><div class="tl-dot hotel"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">⑦ APAホテル到着 ✅ <span class="tag tag-hotel">チェックイン</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- コースD -->
+  <div id="tab-D" class="tab-content fade-in">
+    <div class="course-header">
+      <div class="course-badge">D</div>
+      <div>
+        <h3>① → ④三溪園 → ⑤港の見える丘公園 → 夕食 → ⑦APAホテル</h3>
+        <p>日本庭園と洋風公園を連続して楽しめる。三溪園→港の見える丘は近く移動が楽。</p>
+      </div>
+    </div>
+    <div class="course-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">14:00</div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content"><div class="spot-name">① 上菅田中学校 出発</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:00<br><span class="range">↓ 40〜55分</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span></div>
+            <div class="detail">保土ヶ谷→本牧 約15km。横浜横断で混みやすい</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:40<br><span class="range">〜14:55</span></div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">④ 三溪園 到着 <span class="tag tag-sightseeing">見学1時間</span></div>
+            <div class="detail">閉園17:00（最終入園16:30）</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">15:40<br><span class="range">〜15:55</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 三溪園 → 港の見える丘公園</div>
+            <div class="detail">約5km / 15〜25分</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16:00<br><span class="range">〜16:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">⑤ 港の見える丘公園 到着 <span class="tag tag-sightseeing">見学1時間</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17:00<br><span class="range">〜17:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot meal"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">🍽 夕食（元町・山手エリア）<span class="tag tag-meal">約1時間</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18:00<br><span class="range">〜18:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 元町 → APAホテル 10〜20分</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18:10<br><span class="range">〜18:40</span></div>
+          <div class="tl-dot-col"><div class="tl-dot hotel"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">⑦ APAホテル到着 ✅</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- コースE -->
+  <div id="tab-E" class="tab-content fade-in">
+    <div class="course-header">
+      <div class="course-badge">E</div>
+      <div>
+        <h3>① → ⑤港の見える丘公園 → ④三溪園 → 夕食（本牧）→ ⑦APAホテル</h3>
+        <p>Dの逆順。バラを先に楽しんでから、三溪園で夕方の静かな庭園を堪能する。</p>
+      </div>
+    </div>
+    <div class="course-body">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-time">14:00</div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content"><div class="spot-name">① 上菅田中学校 出発</div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:00<br><span class="range">↓ 40〜55分</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content"><div class="spot-name"><span class="tag tag-drive">🚗 移動</span></div></div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">14:40<br><span class="range">〜14:55</span></div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">⑤ 港の見える丘公園 到着 <span class="tag tag-sightseeing">見学1時間</span></div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">15:40<br><span class="range">〜15:55</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 港の見える丘 → 三溪園 約15〜25分</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">16:00<br><span class="range">〜16:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">④ 三溪園 到着 <span class="tag tag-sightseeing">見学1時間</span></div>
+            <div class="warning">⚠️ 最終入園16:30 → 渋滞時は16:00までに入園を</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">17:00<br><span class="range">〜17:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot meal"></div></div>
+          <div class="tl-content">
+            <div class="spot-name">🍽 夕食（本牧エリア）<span class="tag tag-meal">約1時間</span></div>
+            <div class="detail">三溪園から5〜10分圏内</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18:00<br><span class="range">〜18:20</span></div>
+          <div class="tl-dot-col"><div class="tl-dot drive"></div></div>
+          <div class="tl-content">
+            <div class="spot-name"><span class="tag tag-drive">🚗 移動</span> 本牧 → APAホテル 20〜30分</div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">18:25<br><span class="range">〜18:50</span></div>
+          <div class="tl-dot-col"><div class="tl-dot hotel"></div></div>
+          <div class="tl-content"><div class="spot-name">⑦ APAホテル到着 ✅</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 天気別お薦め順 -->
+<section>
+  <div class="section-label">RECOMMENDATION</div>
+  <div class="section-title">天気別おすすめ順位</div>
+  <div class="weather-grid">
+    <div class="weather-card">
+      <div class="weather-card-header sunny">
+        ☀️ 晴れの場合
+      </div>
+      <div class="weather-card-body">
+        <div class="rank-item">
+          <div class="rank-num rank-1">1</div>
+          <div>
+            <div><strong>コースC</strong>（⑥→⑤→夕食→⑦）</div>
+            <div class="rank-reason">港の見える丘のバラが見頃ピーク。横浜港とベイブリッジの眺望も最高。晴天下のバラ鑑賞が圧巻。</div>
+          </div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-num rank-2">2</div>
+          <div>
+            <div><strong>コースD</strong>（④→⑤→夕食→⑦）</div>
+            <div class="rank-reason">日本庭園＋バラ公園の二本立て。移動も楽で高齢者に優しい順路。</div>
+          </div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-num rank-3">3</div>
+          <div>
+            <div><strong>コースB</strong>（⑥→④→夕食→⑦）</div>
+            <div class="rank-reason">市電保存館＋三溪園で昭和レトロ×古典美の対比が楽しい。移動距離も最小。</div>
+          </div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-num rank-4">4</div>
+          <div>
+            <div><strong>コースE</strong>（⑤→④→夕食→⑦）</div>
+            <div class="rank-reason">Dの逆順。三溪園を最終入園ギリギリで入るリスクあり。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="weather-card">
+      <div class="weather-card-header rainy">
+        🌧 雨の場合
+      </div>
+      <div class="weather-card-body">
+        <div class="rank-item">
+          <div class="rank-num rank-1">1</div>
+          <div>
+            <div><strong>コースB</strong>（⑥→④→夕食→⑦）</div>
+            <div class="rank-reason">⑥市電保存館は完全屋内。三溪園も傘でゆっくり歩ける。雨でも見映えする日本庭園の風情が楽しめる。</div>
+          </div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-num rank-2">2</div>
+          <div>
+            <div><strong>コースE</strong>（⑤→④→夕食→⑦）</div>
+            <div class="rank-reason">⑤は雨でも傘があれば散策可。三溪園は雨の風情も格別（苔と古建築が映える）。</div>
+          </div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-num rank-3">3</div>
+          <div>
+            <div><strong>コースC</strong>（⑥→⑤→夕食→⑦）</div>
+            <div class="rank-reason">⑥は屋内で安心。⑤バラ公園は雨の香りも良いが視界が悪いと港の眺望が惜しい。</div>
+          </div>
+        </div>
+        <div class="rank-item">
+          <div class="rank-num rank-4">4</div>
+          <div>
+            <div><strong>コースD</strong>（④→⑤→夕食→⑦）</div>
+            <div class="rank-reason">三溪園は傘歩きがやや疲れる場合も。高齢者には移動距離に注意。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 各スポットの見どころ -->
+<section>
+  <div class="section-label">HIGHLIGHTS</div>
+  <div class="section-title">5月22日の各スポット見どころ</div>
+  <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">高齢者（ご夫婦）向けのバリアフリー情報も併記しています。</div>
+  <div class="spots-grid">
+
+    <div class="spot-card">
+      <div class="spot-card-header">
+        <div class="spot-num">④</div>
+        <div class="name">三溪園</div>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-info-row">
+          <span class="info-badge">入園料：900円</span>
+          <span class="info-badge">9:00〜17:00</span>
+          <span class="info-badge">駐車場あり</span>
+        </div>
+        <p>実業家・原三溪が造園した国の名勝。京都や鎌倉から移築した重要文化財17棟が点在する175,000㎡の日本庭園。無料ガイドボランティアに案内してもらうと一層楽しめます。</p>
+        <div class="highlight">5月下旬は<strong>スイレン（睡蓮）</strong>が見ごろ開始。モネの絵を思わせる白い花が池に浮かびます。ハナショウブも咲き始め、新緑と重要文化財の三重塔のコントラストが美しい時期です。</div>
+        <div class="barrier-note">園内は舗装路で車椅子も通行可。多機能トイレあり。ただし三重塔への丘道は急坂。</div>
+      </div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-card-header">
+        <div class="spot-num">⑤</div>
+        <div class="name">港の見える丘公園</div>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-info-row">
+          <span class="info-badge">入園無料</span>
+          <span class="info-badge">24時間開放</span>
+          <span class="info-badge">近隣有料駐車場</span>
+        </div>
+        <p>横浜ベイブリッジを一望する高台の公園。「イングリッシュローズの庭」「香りの庭」「バラとカスケードの庭」の3つのバラ園があり、計約330品種・約1,950株のバラが植えられています。</p>
+        <div class="highlight">5月22日は<strong>バラの見ごろ真っただ中</strong>！2026年は開花が早く、5/22は満開を迎えている可能性大。「横浜ローズウィーク2026」（5/2〜6/2）の真っ最中で、滋賀では見られない横浜港を背景にしたバラの絶景が楽しめます。</div>
+        <div class="barrier-note">公園内に坂あり。ベンチ多数。車椅子の方は正面入口付近のバラ園から楽しめます。</div>
+      </div>
+    </div>
+
+    <div class="spot-card">
+      <div class="spot-card-header">
+        <div class="spot-num">⑥</div>
+        <div class="name">横浜市電保存館</div>
+      </div>
+      <div class="spot-card-body">
+        <div class="spot-info-row">
+          <span class="info-badge">入館料：300円</span>
+          <span class="info-badge">金曜10:00〜16:00</span>
+          <span class="info-badge">無料駐車場16台</span>
+        </div>
+        <p>明治37年から昭和47年まで横浜市民の足として活躍した「ちんちん電車」を7両保存。実際に車内に入れ、運転台にも座れる体験型の博物館。市電シミュレーターやNゲージ鉄道模型も人気。</p>
+        <div class="highlight">季節を問わず楽しめる<strong>完全屋内施設</strong>。当時の停留場の敷石や標識がそのまま再現されており、高齢者の方には懐かしい昭和の横浜の風景が蘇ります。ゆったりと座って見学できる造りで疲れにくい。</div>
+        <div class="barrier-note">バリアフリー完備（スロープ・エレベーター・多機能トイレ・車椅子貸出）。高齢者に最も優しい施設。</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 夕食候補 -->
+<section>
+  <div class="section-label">DINNER</div>
+  <div class="section-title">夕食レストラン候補（駐車場付き・要事前確認）</div>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">
+    金曜夕方は混み合います。<strong>必ず事前にご予約ください</strong>。駐車場の有無・台数も予約時に確認を。
+  </p>
+  <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
+    <table class="dinner-table">
+      <thead>
+        <tr>
+          <th>エリア</th>
+          <th>おすすめ店舗・施設例</th>
+          <th>適したコース</th>
+          <th>補足</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>本牧エリア</strong></td>
+          <td>本牧館（和食）、レッドロブスター新本牧店（シーフード）、ゴールデンカップ（ライブハウス兼レストラン）など</td>
+          <td>B・E</td>
+          <td>三溪園から5〜10分。国道16号沿いに駐車場付き店舗多数。</td>
+        </tr>
+        <tr>
+          <td><strong>元町・山手エリア</strong></td>
+          <td>ホテルニューグランド（ラ・テラス）、元町通り沿いのイタリアン・フレンチなど</td>
+          <td>C・D</td>
+          <td>港の見える丘から徒歩圏。雰囲気が良く高齢者にも喜ばれる落ち着いた店が多い。</td>
+        </tr>
+        <tr>
+          <td><strong>中華街</strong></td>
+          <td>各種中華料理（元町・中華街駅周辺）</td>
+          <td>C・D</td>
+          <td>横浜観光の定番。大型駐車場が複数あり車でも行きやすい。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 注意事項 -->
+<section>
+  <div class="section-label">NOTES</div>
+  <div class="section-title">ご注意・アドバイス</div>
+  <ul class="notes-list">
+    <li class="warn"><strong>鎌倉大仏・横須賀軍港は今回断念を</strong>：出発時刻・終着時刻の制約上、鎌倉大仏（閉門16:45）への訪問後に横浜市内スポット＋夕食＋ホテル着19:00は困難です。横須賀も往復で3時間かかります。次回の別機会をお勧めします。</li>
+    <li class="warn"><strong>⑥市電保存館は金曜16:00閉館（入館15:30まで）</strong>：必ず最初に訪問してください。15:30を過ぎると入館できません。</li>
+    <li class="tip"><strong>カーナビの出発前設定を推奨</strong>：5/22（金）は夕方に横浜市内が混み合います。出発前にYahooカーナビ等で渋滞情報を確認し、代替ルートも把握しておくと安心です。</li>
+    <li class="tip"><strong>高齢者向け配慮</strong>：三溪園は舗装路が多く歩きやすいですが、広大（17.5万㎡）なので無理せず外苑の大池周辺を散策するだけでも十分楽しめます。市電保存館は椅子が多く休憩しながら見学できます。</li>
+    <li><strong>APAホテルの駐車場</strong>：ホテル有料駐車場があります（事前に料金・台数・予約方法をご確認ください）。赤レンガ倉庫周辺は夜間も駐車場は混みます。</li>
+    <li><strong>三溪園の入園料</strong>：大人900円。JAFカード・横浜市敬老パスで割引になる場合あり（詳細は公式サイトで確認）。</li>
+    <li class="tip"><strong>熱中症対策</strong>：5月下旬の横浜は日差しが強い日も。水分・帽子・日傘の用意を。三溪園・港の見える丘公園ともに屋外が多いので晴れの日は特に注意。</li>
+  </ul>
+</section>
+
+<p class="print-note">※ 掲載情報は2026年5月時点。施設の開館時間・料金は必ず公式サイトでご確認ください。</p>
+
+</div><!-- /container -->
+
+<div class="footer">
+  横浜ドライブコース案内 2026年5月22日版 ／ 作成：Claude（Anthropic）
+</div>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  const content = document.getElementById('tab-' + id);
+  content.classList.add('active');
+  content.classList.remove('fade-in');
+  void content.offsetWidth;
+  content.classList.add('fade-in');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
